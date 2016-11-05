@@ -1,0 +1,20 @@
+{
+  "name": "mdl-template-dash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mdl-template-dash.html",
+  "keywords": [
+    "polymer",
+    "web-components"
+  ],
+  "dependencies": {
+    "icon-icons": "*",
+    "iron-icon": "PolymerElements/iron-icon#e77365a99a",
+    "paper-item": "PolymerElements/paper-item#ad314fa38f",
+    "paper-toolbar": "PolymerElements/paper-toolbar#~1.1.7",
+    "paper-menu": "PolymerElements/paper-menu#b1fd199783",
+    "paper-header-panel": "PolymerElements/paper-header-panel#~1.1.7",
+    "iron-pages": "PolymerElements/iron-pages#~1.0.8",
+    "paper-drawer-panel": "PolymerElements/paper-drawer-panel#~1.0.10"
+  }
+}
