@@ -21,7 +21,7 @@
           <iron-icon icon="account-circle" class="middle" item-icon></iron-icon>
           <paper-item class="bottom">Switch Users</paper-item><paper-item class="bottom">Logout</paper-item>
         </paper-toolbar>
-        <paper-menu selected="{{menuSelected}}" on-tap="closeMenu">
+              <paper-menu selected="{{menuSelected}}" on-tap="closeMenu">
           <paper-icon-item><iron-icon icon="home" item-icon></iron-icon><paper-item-body> Home </paper-item-body></paper-icon-item>
           <paper-icon-item><iron-icon icon="inbox" item-icon></iron-icon>Inbox</paper-icon-item>
           <content select="div.menu"></content>
@@ -31,18 +31,14 @@
         <paper-toolbar><iron-icon icon="menu" on-tap="openMenu"></iron-icon><div class=title>[[pageTitle]]</div><iron-icon icon="more-vert"></iron-icon></paper-toolbar>
         <div style="background:#fff">
           <iron-pages selected="{{menuSelected}}">
-            <div>
-              <h1>Home</h1>
-              
-            </div>
-            <div>
-              <h1>Inbox</h1>
-              
-            </div>
+            <div><content select="home-page"></content></div>
+            <div><content select="inbox-page"></content></div>
           </iron-pages>
         </div>
       </paper-header-panel>
     </paper-drawer-panel>
+    
+    
   </template>
 </dom-module>
 <script>
