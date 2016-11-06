@@ -8,8 +8,8 @@
     "web-components"
   ],
   "dependencies": {
-    "icon-icons": "*",
     "iron-icon": "PolymerElements/iron-icon#e77365a99a",
+    "iron-icons": "PolymerElements/iron-icons,
     "paper-item": "PolymerElements/paper-item#ad314fa38f",
     "paper-toolbar": "PolymerElements/paper-toolbar#~1.1.7",
     "paper-menu": "PolymerElements/paper-menu#b1fd199783",
