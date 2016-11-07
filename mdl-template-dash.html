@@ -44,7 +44,7 @@
           <iron-pages selected="{{menuSelected}}">
             <template is="dom-repeat" items="[[pages]]">
               <template is="dom-if" if="[[item]]">              
-                <div><content select="[[item.Label]]-page"></content></div>
+                <div><content select="[[makeTag(item.Label)]]-page"></content></div>
               </template>
             </template>
           </iron-pages>
@@ -78,6 +78,9 @@
     },
     getTitlePage: function(pages,page){
       return pages[page].Label
+    },
+    makeTag: function(label) {
+      return label.replace(" ","-")
     },
   })
 </script>
