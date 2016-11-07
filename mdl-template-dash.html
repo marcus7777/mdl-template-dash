@@ -15,7 +15,7 @@
 <dom-module id="mdl-template-dash">
   <template>
     <style>:host {display:block;background:#fff} </style>
-    <paper-drawer-panel id="drawer">
+    <paper-drawer-panel id="drawer" narrow="{{narrow}}">
       <paper-header-panel drawer>
         <paper-toolbar class="tall">
           <iron-icon icon="account-circle" class="middle" item-icon></iron-icon>
@@ -33,7 +33,13 @@
         </paper-menu>
       </paper-header-panel>
       <paper-header-panel main>
-        <paper-toolbar><iron-icon icon="menu" on-tap="openMenu"></iron-icon><div class=title style="text-transform:capitalize"> [[titlePage]] </div><iron-icon icon="more-vert"></iron-icon></paper-toolbar>
+        
+        <paper-toolbar>
+          <template is="dom-if" if="[[narrow]]">
+            <iron-icon icon="menu" on-tap="openMenu"></iron-icon>
+          </template>
+          <div class=title style="text-transform:capitalize"> [[titlePage]] </div><iron-icon icon="more-vert"></iron-icon>
+        </paper-toolbar>
         <div style="background:#fff">
           <iron-pages selected="{{menuSelected}}">
             <template is="dom-repeat" items="[[pages]]">
