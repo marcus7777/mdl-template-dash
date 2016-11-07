@@ -23,7 +23,12 @@
         </paper-toolbar>
         <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
           <template is="dom-repeat" items="[[pages]]">
-            <paper-icon-item title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
+            <template is="dom-if" if="[[item]]"> 
+              <paper-icon-item title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
+            </template>
+            <template is="dom-if" if="[[!item]]">
+              -
+            </template>
           </template>
         </paper-menu>
       </paper-header-panel>
@@ -32,7 +37,9 @@
         <div style="background:#fff">
           <iron-pages selected="{{menuSelected}}">
             <template is="dom-repeat" items="[[pages]]">
-              <div><content select="[[item.Label]]-page"></content></div>
+              <template is="dom-if" if="[[item]]">              
+                <div><content select="[[item.Label]]-page"></content></div>
+              </template>
             </template>
           </iron-pages>
         </div>
@@ -51,7 +58,7 @@
       },
       pages:{
         type:Array,
-        value:["home","inbox"],
+        value:[{label:"home",icon:"home"},"",{label:"Inbox",icon:"inbox"}],
       },
       titlePage:{
         computed:"getTitlePage(pages,menuSelected)",
