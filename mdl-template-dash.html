@@ -23,7 +23,7 @@
         </paper-toolbar>
         <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
           <template is="dom-repeat" items="[[pages]]">
-            <paper-icon-item><iron-icon icon="[[item]]" item-icon></iron-icon><paper-item-body> [[item]] </paper-item-body></paper-icon-item>
+            <paper-icon-item title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
           </template>
         </paper-menu>
       </paper-header-panel>
@@ -32,7 +32,7 @@
         <div style="background:#fff">
           <iron-pages selected="{{menuSelected}}">
             <template is="dom-repeat" items="[[pages]]">
-              <div><content select="[[item]]-page"></content></div>
+              <div><content select="[[item.Label]]-page"></content></div>
             </template>
           </iron-pages>
         </div>
@@ -64,7 +64,7 @@
       this.$.drawer.closeDrawer()
     },
     getTitlePage: function(pages,page){
-      return pages[page]
+      return pages[page].Label
     },
   })
 </script>
