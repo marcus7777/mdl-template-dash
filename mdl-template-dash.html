@@ -42,7 +42,7 @@
         </paper-toolbar>
         <div style="background:#fff">
           <iron-pages selected="{{menuSelected}}">
-            <template is="dom-repeat" items="[[pages]]">
+            <template is="dom-repeat" items="[[pagesWithContent]]">
               <template is="dom-if" if="[[item]]">              
                 <div><content select="[[makeTag(item.Label)]]-page"></content></div>
               </template>
@@ -69,11 +69,14 @@
       titlePage:{
         computed:"getTitlePage(pages,menuSelected)",
       },
+      pagesWithContent: {
+        computed:"getPagesWithContent(pages)",
+      }
     },
-    openMenu: function(undefined){
+    openMenu: function(){
       this.$.drawer.openDrawer()
     },
-    closeMenu: function(undefined){
+    closeMenu: function(){
       this.$.drawer.closeDrawer()
     },
     getTitlePage: function(pages,page){
@@ -81,6 +84,15 @@
     },
     makeTag: function(label) {
       return label.replace(" ","-")
+    },
+    getPagesWithContent: function(pages) {
+      return pages.reduce(function(a, b) { 
+       if (a) { 
+         return a.push(b) 
+       } else {
+         return a
+       };
+      }, [])
     },
   })
 </script>
