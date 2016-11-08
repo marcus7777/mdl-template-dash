@@ -87,8 +87,8 @@
     },
     getPagesWithContent: function(pages) {
       return pages.reduce(function(a, b) { 
-       if (a) { 
-         return a.push(b) 
+       if (b) { 
+         return a.concat([b]) 
        } else {
          return a
        };
