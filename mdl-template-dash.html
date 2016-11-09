@@ -88,6 +88,10 @@
     },
     openMenu: function(){
       this.$$("paper-drawer-panel").openDrawer()
+      if (this.responsiveWidth) {
+        this.$$("paper-drawer-panel").responsiveWidth = this.responsiveWidth 
+        this.responsiveWidth = null
+      }
     },
     closeMenu: function(){
       this.$$("paper-drawer-panel").closeDrawer()
@@ -117,7 +121,7 @@
       }, menuSelected)
     },
     full: function(menuSelected,pages) {
-      // this.responsiveWidth = this.$$("paper-drawer-panel").responsiveWidth // TODO how to go back?
+      this.responsiveWidth = this.$$("paper-drawer-panel").responsiveWidth // TODO how to go back?
       this.$$("paper-drawer-panel").responsiveWidth = "1000000px" // make narrow
     },
   })
