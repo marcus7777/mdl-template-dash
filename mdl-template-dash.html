@@ -71,7 +71,7 @@
         computed:"getPagesWithContent(pages)",
       },
       menuSelectedWithContent:{
-        computed:"menuSelectedWithContent(menuSelected,pages)",
+        computed:"getMenuSelectedWithContent(menuSelected,pages)",
       },
     },
     openMenu: function(){
@@ -95,7 +95,7 @@
        };
       }, [])
     },
-    menuSelectedWithContent: function(menuSelected,pages) {
+    getMenuSelectedWithContent: function(menuSelected,pages) {
       return pages.slice(0,menuSelected).reduce(function(a, b) { 
        if (b) { 
          return a
