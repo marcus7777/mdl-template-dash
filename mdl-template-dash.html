@@ -20,7 +20,7 @@
         <paper-header-panel drawer>        
           <paper-toolbar class="tall">
             <img style="border-radius:50%" src="[[user.picture]]" item-icon /> <span>[[user.name]]</span>
-            <paper-item class="bottom">Switch Users</paper-item><paper-item class="bottom">Logout</paper-item>
+            <paper-button class="bottom">Switch Users</paper-button><paper-button class="bottom">Logout</paper-button>
           </paper-toolbar>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
             <template is="dom-repeat" items="[[pages]]">
