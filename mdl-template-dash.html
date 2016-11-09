@@ -19,7 +19,7 @@
       <paper-drawer-panel id="drawer" narrow="{{narrow}}">
         <paper-header-panel drawer>        
           <paper-toolbar class="tall">
-            <img src="[[user.picture]]" item-icon /> [[user.name]]
+            <img style="border-radius:50%" src="[[user.picture]]" item-icon /> [[user.name]]
             <paper-item class="bottom">Switch Users</paper-item><paper-item class="bottom">Logout</paper-item>
           </paper-toolbar>        
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
