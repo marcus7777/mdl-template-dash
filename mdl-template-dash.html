@@ -19,9 +19,9 @@
       <paper-drawer-panel id="drawer" narrow="{{narrow}}">
         <paper-header-panel drawer>        
           <paper-toolbar class="tall">
-            <img style="border-radius:50%" src="[[user.picture]]" item-icon /> [[user.name]]
+            <img style="border-radius:50%" src="[[user.picture]]" item-icon /> <span>[[user.name]]</span>
             <paper-item class="bottom">Switch Users</paper-item><paper-item class="bottom">Logout</paper-item>
-          </paper-toolbar>        
+          </paper-toolbar>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
             <template is="dom-repeat" items="[[pages]]">
               <template is="dom-if" if="[[item]]"> 
@@ -38,6 +38,9 @@
             <template is="dom-if" if="[[narrow]]">
               <iron-icon icon="menu" on-tap="openMenu"></iron-icon>
             </template>
+            <template is="dom-if" if="[[!narrow]]">
+              <iron-icon icon="arrow-back" on-tap="full"></iron-icon>
+            </template>            
             <div class=title style="text-transform:capitalize"> [[titlePage]] </div><iron-icon icon="more-vert"></iron-icon>
           </paper-toolbar>
           <div style="background:#fff">
