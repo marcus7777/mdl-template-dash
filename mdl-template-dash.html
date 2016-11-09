@@ -45,7 +45,7 @@
             </template>            
             <div class=title style="text-transform:capitalize"> [[titlePage]] </div><iron-icon icon="more-vert"></iron-icon>
           </paper-toolbar>
-          <div style="background:#fff">
+          <div>
             <iron-pages selected="{{menuSelectedWithContent}}">
               <template is="dom-repeat" items="[[pagesWithContent]]">
                 <div><content select="[[makeTag(item.Label)]]-page"></content></div>
