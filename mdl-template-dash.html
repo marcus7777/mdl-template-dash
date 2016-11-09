@@ -16,7 +16,7 @@
   <template>
     <style>:host {display:block;background:#fff} </style>
     <template is="dom-if" if="[[user]]"> 
-      <paper-drawer-panel id="drawer" narrow="{{narrow}}">
+      <paper-drawer-panel narrow="{{narrow}}">
         <paper-header-panel drawer>        
           <paper-toolbar class="tall">
             <img style="border-radius:50%" src="[[user.picture]]" item-icon /> <span>[[user.name]]</span>
@@ -87,10 +87,10 @@
       },
     },
     openMenu: function(){
-      this.$.drawer.openDrawer()
+      this.$$("paper-drawer-panel").openDrawer()
     },
     closeMenu: function(){
-      this.$.drawer.closeDrawer()
+      this.$$("paper-drawer-panel").closeDrawer()
     },
     getTitlePage: function(pages,page){
       return pages[page].Label
