@@ -38,10 +38,10 @@
         <paper-header-panel main>
           <paper-toolbar>
             <template is="dom-if" if="[[narrow]]">
-              <iron-icon icon="menu" on-tap="openMenu"></iron-icon>
+              <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
             </template>
             <template is="dom-if" if="[[!narrow]]">
-              <iron-icon icon="[[backMenu]]" on-tap="full"></iron-icon>
+              <iron-icon style="cursor:pointer" icon="[[backMenu]]" on-tap="full"></iron-icon>
             </template>            
             <div class=title style="text-transform:capitalize"> [[titlePage]] </div><iron-icon icon="more-vert"></iron-icon>
           </paper-toolbar>
