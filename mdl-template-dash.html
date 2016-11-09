@@ -49,7 +49,12 @@
           </div>
         </paper-header-panel>
       </paper-drawer-panel>
-    </template>  
+    </template>
+    <template is="dom-if" if="[[!user]]">
+      <div style="display: flex;justify-content: center;align-items: center;">
+        <paper-button raised on-tap="login">login</paper-button>
+      </div>
+    </template>
   </template>
 </dom-module>
 <script>
