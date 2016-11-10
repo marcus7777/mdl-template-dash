@@ -8,17 +8,31 @@
   </head>
   <body>
     <h3>mdl-template-dash Demo</h3>
-    <mdl-template-dash >
-      <home-page>
-        a task list
-      </home-page>
-      <inbox-page>
-        the list of messages
-      </inbox-page>
-      <login-page>
-        <button on-tap="login"> login </button>
-      </login-page>
-    </mdl-template-dash>
-    
+    <template is="dom-bind" id="app">
+      <mdl-template-dash user="{{user}}" on-sign-out="signOut">
+        <home-page>
+          a task list
+        </home-page>
+        <inbox-page>
+          the list of messages
+        </inbox-page>
+        <login-page>
+          <button on-tap="login"> login </button>
+        </login-page>
+      </mdl-template-dash>
+    </template>
+    <script>
+      (function (document) {
+        'use strict';
+        var app = document.querySelector('#app');
+         app.login = function () {
+           this.user = {Name: "marcus"}
+           //...
+         }
+         app.signOut = function () {
+           this.user = null
+         }
+        })(document);
+      </script>
   </body>
 </html>
