@@ -48,7 +48,7 @@
           <div>
             <iron-pages selected="{{menuSelectedWithContent}}">
               <template is="dom-repeat" items="[[pagesWithContent]]">
-                <div style="min-height:100%; display: flex;justify-content: center;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
+                <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
               </template>
             </iron-pages>
           </div>
