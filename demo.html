@@ -18,7 +18,10 @@
           the list of messages
         </inbox-page>
         <login-page>
+          <h1>Please look into my demo page. By logging In:</h1>
           <firebase-ui-auth user="{{user}}" sign-in-success-url="" id="auth"></firebase-ui-auth>
+          <h2>or Fake login</h2>
+          <button on-tap="login">login</button>
         </login-page>
       </mdl-template-dash>
     </template>
@@ -28,6 +31,9 @@
         var app = document.querySelector('#app')
         app.logout = function () {
           app.$.auth.signOut()
+        }
+        app.login = function () {
+          app.user = {Name:"Marcus"}
         }
       })(document);
     </script>
