@@ -17,22 +17,18 @@
           the list of messages
         </inbox-page>
         <login-page>
-          <button on-tap="login"> login </button>
+          <firebase-ui-auth user="{{user}}" sign-in-success-url="" id="auth"></firebase-ui-auth>
         </login-page>
       </mdl-template-dash>
     </template>
     <script>
       (function (document) {
         'use strict';
-        var app = document.querySelector('#app');
-         app.login = function () {
-           this.user = {Name: "marcus"}
-           //...
-         }
-         app.logout = function () {
-           this.user = null
-         }
-        })(document);
-      </script>
+        var app = document.querySelector('#app')
+        app.logout = function () {
+          app.$.auth.signOut()
+        }
+      })(document);
+    </script>
   </body>
 </html>
