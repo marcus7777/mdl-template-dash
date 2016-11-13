@@ -21,7 +21,10 @@
       <paper-drawer-panel narrow="{{narrow}}">
         <paper-header-panel drawer>        
           <paper-toolbar class="tall">
-            <img style="border-radius:50%" src="[[user.picture]]" item-icon /> <span> [[user.name]] </span>
+            <template is="dom-if" if="[[user]]">
+              <img style="border-radius:50%" src="[[user.picture]]" item-icon />
+            </template> 
+            <span> [[user.displayName]] </span>
             <paper-button class="bottom" style="white-space:nowrap" on-tap="userSwitch">Switch Users</paper-button><paper-button class="bottom">Logout</paper-button>
           </paper-toolbar>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
