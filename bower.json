@@ -17,5 +17,8 @@
     "paper-header-panel": "PolymerElements/paper-header-panel#~1.1.7",
     "iron-pages": "PolymerElements/iron-pages#~1.0.8",
     "paper-drawer-panel": "PolymerElements/paper-drawer-panel#~1.0.10"
+  },
+  "devDependencies": {
+    "firebase-ui-auth":"marcus7777/firebase-ui-auth"
   }
 }
