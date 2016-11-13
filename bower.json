@@ -1,7 +1,7 @@
 {
   "name": "mdl-template-dash",
   "version": "1.0.0",
-  "description": "\n    \n    \n    \n  ",
+  "description": "trying to cookie get material design dashboard template.",
   "main": "mdl-template-dash.html",
   "keywords": [
     "polymer",
@@ -19,6 +19,6 @@
     "paper-drawer-panel": "PolymerElements/paper-drawer-panel#~1.0.10"
   },
   "devDependencies": {
-    "firebase-ui-auth":"marcus7777/firebase-ui-auth"
+    "firebase-ui-auth": "marcus7777/firebase-ui-auth"
   }
 }
