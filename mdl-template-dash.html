@@ -23,7 +23,7 @@
           <paper-toolbar class="tall">
             <template is="dom-if" if="[[user.photoURL]]">
               <img style="border-radius:50%" src="[[user.photoURL]]" item-icon />
-            </template> 
+            </template>
             <span> [[user.displayName]] </span>
             <paper-button class="bottom" style="white-space:nowrap" on-tap="userSwitch">Switch Users</paper-button><paper-button class="bottom" on-tap="logout">Logout</paper-button>
           </paper-toolbar>
