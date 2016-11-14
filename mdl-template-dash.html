@@ -139,7 +139,7 @@
       this.$$("paper-drawer-panel").responsiveWidth = "1000000px" // make narrow
     },
     userSwitch: function() {
-      this.fire("userSwitch")
+      this.switching = true
     },
     logout: function() {
       this.fire("logout")
