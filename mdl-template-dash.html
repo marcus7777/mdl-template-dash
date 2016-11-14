@@ -25,7 +25,7 @@
               <img style="border-radius:50%" src="[[user.picture]]" item-icon />
             </template> 
             <span> [[user.displayName]] </span>
-            <paper-button class="bottom" style="white-space:nowrap" on-tap="userSwitch">Switch Users</paper-button><paper-button class="bottom">Logout</paper-button>
+            <paper-button class="bottom" style="white-space:nowrap" on-tap="userSwitch">Switch Users</paper-button><paper-button class="bottom" on-tap="logout">Logout</paper-button>
           </paper-toolbar>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
             <template is="dom-repeat" items="[[pages]]">
