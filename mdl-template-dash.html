@@ -21,8 +21,8 @@
       <paper-drawer-panel narrow="{{narrow}}">
         <paper-header-panel drawer>        
           <paper-toolbar class="tall">
-            <template is="dom-if" if="[[user.picture]]">
-              <img style="border-radius:50%" src="[[user.picture]]" item-icon />
+            <template is="dom-if" if="[[user.photoURL]]">
+              <img style="border-radius:50%" src="[[user.photoURL]]" item-icon />
             </template> 
             <span> [[user.displayName]] </span>
             <paper-button class="bottom" style="white-space:nowrap" on-tap="userSwitch">Switch Users</paper-button><paper-button class="bottom" on-tap="logout">Logout</paper-button>
