@@ -21,7 +21,7 @@
       <paper-drawer-panel narrow="{{narrow}}">
         <paper-header-panel drawer>        
           <paper-toolbar class="tall">
-            <template is="dom-if" if="[[user]]">
+            <template is="dom-if" if="[[user.picture]]">
               <img style="border-radius:50%" src="[[user.picture]]" item-icon />
             </template> 
             <span> [[user.displayName]] </span>
