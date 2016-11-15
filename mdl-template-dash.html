@@ -26,11 +26,13 @@
             <template is="dom-if" if="[[logo]]">
               <img style="margin:11px;width:60px" src="[[logo]]" item-icon />
             </template>
-            <div class="title">[[title]]<br><small>[[subTitle]]</small></div>
-            <template class="middle" is="dom-if" if="[[photo]]">
-              <img style="margin:11px;border-radius:50%" src="[[photo]]" item-icon />
-            </template>
-             <div class="bottom">
+            <div class="title">[[title]]<br /><small>[[subTitle]]</small></div>
+            <div class="middle">
+              <template is="dom-if" if="[[photo]]">
+                <img style="margin:11px;border-radius:50%" src="[[photo]]" item-icon />
+              </template>
+            </div>
+            <div class="bottom">
               [[user.displayName]]
               <div> [[user.email]]</div>
             </div>
