@@ -25,12 +25,21 @@
               <img style="margin: 11px;border-radius:50%" src="[[photo]]" item-icon />
             </template>
             <span> [[user.displayName]] </span>
-            <paper-button class="bottom" style="white-space:nowrap" on-tap="userSwitch">Switch Users</paper-button><paper-button class="bottom" on-tap="logout">Logout</paper-button>
+             <div class="bottom">
+              [[user.displayName]]
+              <div> [[user.email]]</div>
+            </div>
+            <paper-dropdown-menu class="bottom" >
+              <div class="dropdown-content" style="color:#000">
+                <paper-button style="white-space:nowrap" on-tap="userSwitch"><iron-icon icon="plus"></iron-icon> Add account</paper-button><br>
+                <paper-button on-tap="logout">Logout</paper-button>
+              </div>
+            </paper-dropdown-menu>
           </paper-toolbar>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
             <template is="dom-repeat" items="[[pages]]">
               <template is="dom-if" if="[[item]]"> 
-                <paper-icon-item style="cursor: pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
+                <paper-icon-item style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
               </template>
               <template is="dom-if" if="[[!item]]">
                 <hr>
