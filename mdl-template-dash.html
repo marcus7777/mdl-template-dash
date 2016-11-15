@@ -24,14 +24,13 @@
         <paper-header-panel drawer>        
           <paper-toolbar class="tall">
             <template is="dom-if" if="[[photo]]">
-              <img style="margin:11px;border-radius:50%" src="[[photo]]" item-icon />
+              <img class="" style="margin:11px;border-radius:50%" src="[[photo]]" item-icon />
             </template>
-            <span> [[user.displayName]] </span>
              <div class="bottom">
               [[user.displayName]]
               <div> [[user.email]]</div>
             </div>
-            <paper-dropdown-menu class="bottom" >
+            <paper-dropdown-menu class="bottom fix" >
               <div class="dropdown-content" style="color:#000">
                 <paper-icon-item on-tap="userSwitch" style="cursor:pointer" title="Description"><iron-icon icon="add" item-icon></iron-icon><paper-item-body> Add account </paper-item-body></paper-icon-item>
                 <paper-icon-item on-tap="logout" style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="settings" item-icon></iron-icon><paper-item-body> Managed Accounts </paper-item-body></paper-icon-item>
