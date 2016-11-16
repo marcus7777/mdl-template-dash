@@ -28,8 +28,8 @@
             </template>
             <div class="title">[[title]] [[subTitle]] </div>
             <paper-icon-item class="bottom" on-tap="userSwitch" style="cursor:pointer" title="Description">
-              <template is="dom-if" if="[[photo]]">
-                <img style="margin:11px;border-radius:50%" src="[[photo]]" item-icon />
+              <template is="dom-if" if="[[photo]]" item-icon >
+                <img style="margin:11px;border-radius:50%" src="[[photo]]"  />
               </template>
               <paper-item-body two-line>
                 <strong>[[user.displayName]]</strong>
