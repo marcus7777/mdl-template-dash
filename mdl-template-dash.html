@@ -19,7 +19,7 @@
 <dom-module id="mdl-template-dash">
   <template>
     <style>:host {display:block} </style>
-    <template is="dom-if" if="[[user]]"> 
+    <template is="dom-if" if="[[!loginPage]]"> 
       <paper-drawer-panel narrow="{{narrow}}">
         <paper-header-panel drawer>        
           <paper-toolbar class="tall">
@@ -80,6 +80,9 @@
     <template is="dom-if" if="[[loginPage]]">
       <div style="display: flex;justify-content: center;align-items: center;">
         <content select="login-page"></content>
+        <template is="dom-if" if="{{switching}}">                                                                                                    
+          <paper-button on-tap="cancelSwitching"> Cancel </paper-button>                                                                                
+        </template> 
       </div>
     </template>
   </template>
@@ -166,12 +169,15 @@
     login: function() {
       this.fire("login")
     },
-    showLoginPage(user,switching) {
+    showLoginPage: function(user,switching) {
       if (!user || switching) {
         return true
       } else {
         return false
       } 
-    }
+    },
+    cancelSwitching: function() {
+      this.switching = false
+    },
   })
 </script>
