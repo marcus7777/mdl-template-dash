@@ -8,13 +8,13 @@
     "web-components"
   ],
   "dependencies": {
-    "iron-icon": "PolymerElements/iron-icon#e77365a99a",
+    "iron-icon": "PolymerElements/iron-icon",
     "iron-icons": "PolymerElements/iron-icons",
     "paper-button": "PolymerElements/paper-button",
-    "paper-item": "PolymerElements/paper-item#ad314fa38f",
+    "paper-item": "PolymerElements/paper-item",
     "paper-toolbar": "PolymerElements/paper-toolbar#~1.1.7",
-    "paper-menu": "PolymerElements/paper-menu#b1fd199783",
-    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu#234ac77a28",
+    "paper-menu": "PolymerElements/paper-menu",
+    "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu",
     "paper-header-panel": "PolymerElements/paper-header-panel#~1.1.7",
     "iron-pages": "PolymerElements/iron-pages#~1.0.8",
     "paper-drawer-panel": "PolymerElements/paper-drawer-panel#~1.0.10"
