@@ -91,18 +91,12 @@
   Polymer({
     is: "mdl-template-dash",
     properties:{
-      switching:{
-        value: false
-      },
+      switching:{ value: false },
       loginPage:{
         computed:"showLoginPage(user,switching)",
       },
-      user:{
-        value: null
-      },
-      backMenu: {
-        value:"arrow-back"
-      },
+      user:{ value: null },
+      backMenu: { value:"arrow-back" },
       menuSelected:{
         type:Number,
         notify:true,
