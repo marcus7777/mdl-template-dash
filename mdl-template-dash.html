@@ -32,13 +32,13 @@
                 <img style="width:48px;margin:6px;border-radius:50%;position:fixed" src="[[photo]]"  />
               </template>
             </span>
-            <paper-icon-item class="bottom" on-tap="userSwitch" style="cursor:pointer;max-width:100%">
+            <paper-item class="bottom fit" on-tap="userSwitch" style="cursor:pointer;max-width:100%">
               <paper-item-body two-line>
-                <strong>[[user.displayName]]</strong>
+                <div>[[user.displayName]]</div>
                 <div secondary> [[user.email]] </div>
               </paper-item-body>
               <div style="width:20px;height:30px">&#8203;</div>
-            </paper-icon-item>
+            </paper-item>
             <paper-dropdown-menu class="bottom fit">
               <div class="dropdown-content" style="color:#000">
                 <paper-icon-item on-tap="userSwitch" style="cursor:pointer" title="Description"><iron-icon icon="add" item-icon></iron-icon><paper-item-body> Add account </paper-item-body></paper-icon-item>
