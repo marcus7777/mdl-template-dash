@@ -128,7 +128,9 @@
       this.$$("paper-drawer-panel").closeDrawer()
     },
     getTitlePage: function(pages,page){
-      this.$$("#mainContainer").scrollTo(0, 0)
+      if (this.$$("#mainContainer")) {
+        this.$$("#mainContainer").scrollTo(0, 0)
+      }
       return pages[page].Label
     },
     makeTag: function(label) {
