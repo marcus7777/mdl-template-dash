@@ -6,7 +6,8 @@
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="mdl-template-dash.html">
     <link rel="import" href="../firebase-ui-auth/firebase-ui-auth.html">
-        <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+    <link rel="import" href="../paper-badge/paper-badge.html">
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
     <script>
       // Initialize Firebase for open-elements.org
       firebase.initializeApp({
@@ -22,6 +23,14 @@
     <h3>mdl-template-dash Demo</h3>
     <template is="dom-bind" id="app" app-title="Title Here">
       <mdl-template-dash user="{{user}}" on-logout="logout">
+        <toolbar-icons>
+          <div>
+            <iron-icon icon="mail"></iron-icon>
+            <template is="dom-if" if='1'>
+              <paper-badge label="10" title="10 unread messages"></paper-badge>
+            </template>
+          </div>
+        </toolbar-icons>
         <home-page>
           a task list
         </home-page>
