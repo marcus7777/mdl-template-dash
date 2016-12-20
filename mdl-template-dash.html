@@ -65,7 +65,7 @@
             <template is="dom-if" if="[[!narrow]]">
               <iron-icon style="cursor:pointer" icon="[[backMenu]]" on-tap="full"></iron-icon>
             </template>            
-            <div class=title style="text-transform:capitalize"> [[titlePage]] </div><iron-icon icon="more-vert"></iron-icon>
+            <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
           </paper-toolbar>
           <div>
             <iron-pages selected="{{menuSelectedWithContent}}">
