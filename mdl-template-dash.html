@@ -126,8 +126,10 @@
         if (pageTitle.toUpperCase() === page.Label.toUpperCase()) {
           index = i
         }
-      }) 
-      return index
+      })
+      if (this.menuSelected !== index) {
+        this.menuSelected = index
+      }
     },
     openMenu: function(){
       this.$$("paper-drawer-panel").openDrawer()
