@@ -102,6 +102,9 @@
         notify:true,
         value:0,
       },
+      _setMenuSelected:{
+        computed:"setMenuSelected(page,pagesWithContent)",
+      },
       pages:{
         type:Array,
         value:[{Label:"home",Icon:"home"},"",{Label:"Inbox",Icon:"inbox"}],
@@ -116,6 +119,9 @@
         computed:"getMenuSelectedWithContent(menuSelected,pages)",
       },
       appTitle:String,
+    },
+    setMenuSelected: function(page,pages){
+      debugger
     },
     openMenu: function(){
       this.$$("paper-drawer-panel").openDrawer()
