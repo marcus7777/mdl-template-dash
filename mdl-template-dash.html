@@ -120,8 +120,14 @@
       },
       appTitle:String,
     },
-    setMenuSelected: function(page,pages){
-      debugger
+    setMenuSelected: function(pageTitle,pages){
+      var index = 0 
+      pages.forEach(function(page, i) {
+        if (pageTitle.toUpperCase() === page.Label.toUpperCase()) {
+          index = i
+        }
+      }) 
+      return index
     },
     openMenu: function(){
       this.$$("paper-drawer-panel").openDrawer()
