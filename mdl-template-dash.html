@@ -91,6 +91,10 @@
   Polymer({
     is: "mdl-template-dash",
     properties:{
+      page:{
+        type:String,
+        notify:true,
+      },
       switching:{ value: false },
       loginPage:{
         computed:"showLoginPage(user,switching)",
@@ -119,6 +123,11 @@
         computed:"getMenuSelectedWithContent(menuSelected,pages)",
       },
       appTitle:String,
+    },
+    setPage: function(pages,menuSelected) {
+      if (this.page != pages[menuSelected].Label){
+        this.page = pages[menuSelected].Label
+      }
     },
     setMenuSelected: function(pageTitle,pages){
       var index = 0 
