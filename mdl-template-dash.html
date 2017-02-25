@@ -95,6 +95,9 @@
         type:String,
         notify:true,
       },
+      _setPage:{
+        computed:"setPage(pages,menuSelected)",
+      },
       switching:{ value: false },
       loginPage:{
         computed:"showLoginPage(user,switching)",
