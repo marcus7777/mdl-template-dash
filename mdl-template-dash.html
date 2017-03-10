@@ -91,6 +91,9 @@
   Polymer({
     is: "mdl-template-dash",
     properties:{
+      go:{
+        notify:true,
+      },
       page:{
         type:String,
         notify:true,
@@ -129,7 +132,8 @@
     },
     setPage: function(pages,menuSelected) {
       if (this.page != pages[menuSelected].Label){
-        this.set("page", pages[menuSelected].Label)
+        this.go = !this.go
+        this.page = pages[menuSelected].Label
       }
     },
     setMenuSelected: function(pageTitle,pages){
