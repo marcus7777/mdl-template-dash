@@ -133,6 +133,7 @@
     setPage: function(title) {
       if (title && this.page != title) {
         this.page = title
+        this.go = !this.go
       }
     },
     setMenuSelected: function(pageTitle,pages){
