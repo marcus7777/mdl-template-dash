@@ -138,7 +138,7 @@
     setMenuSelected: function(pageTitle,pages){
       var index = 0 
       pages.forEach(function(page, i) {
-        if (pageTitle.toUpperCase() === page.Label.toUpperCase()) {
+        if (page.Label && pageTitle.toUpperCase() === page.Label.toUpperCase()) {
           index = i
         }
       })
