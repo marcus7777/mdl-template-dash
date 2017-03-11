@@ -99,7 +99,7 @@
         notify:true,
       },
       _setPage:{
-        computed:"setPage(pagesWithContent,menuSelectedWithContent)",
+        computed:"setPage(titlePage)",
       },
       switching:{ value: false },
       loginPage:{
@@ -130,10 +130,9 @@
       },
       appTitle:String,
     },
-    setPage: function(pages,menuSelected) {
-      if (this.page != pages[menuSelected].Label){
-        this.go = !this.go
-        this.page = pages[menuSelected].Label
+    setPage: function(title) {
+      if (this.page != title) {
+        this.page = title
       }
     },
     setMenuSelected: function(pageTitle,pages){
