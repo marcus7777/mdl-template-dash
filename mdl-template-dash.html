@@ -22,12 +22,12 @@
     <template is="dom-if" if="[[!loginPage]]"> 
       <paper-drawer-panel narrow="{{narrow}}">
         <paper-header-panel drawer>        
-          <paper-toolbar class="tall">
+          <paper-toolbar>
             <template is="dom-if" if="[[logo]]">
               <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
             </template>
-            <h2> [[appTitle]] </h2>
-            <span class="middle" item-icon style="width:48px">
+            <h2 title> [[appTitle]] </h2>
+            <!-- <span class="middle" item-icon style="width:48px">
               <template is="dom-if" if="[[photo]]" item-icon >
                 <img style="width:48px;margin:-15px 0px;border-radius:50%;position:fixed" src="[[photo]]"  />
               </template>
@@ -38,7 +38,7 @@
                 <div secondary> [[user.email]] </div>
               </paper-item-body>
               <div style="width:20px;height:30px">&#8203;</div>
-            </paper-item>
+            </paper-item> -->
             <paper-dropdown-menu class="bottom fit">
               <div class="dropdown-content" style="color:#000">
                 <paper-icon-item on-tap="userSwitch" style="cursor:pointer" title="Description"><iron-icon icon="add" item-icon></iron-icon><paper-item-body> Add account </paper-item-body></paper-icon-item>
