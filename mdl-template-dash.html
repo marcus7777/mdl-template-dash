@@ -23,8 +23,8 @@
       <paper-drawer-panel narrow="{{narrow}}">
         <paper-header-panel drawer>        
           <paper-toolbar>
-            <template is="dom-if" if="[[narrow]]">
-              <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
+            <template is="dom-if" if="[[!narrow]]">
+              <iron-icon style="cursor:pointer" icon="[[backMenu]]" on-tap="full"></iron-icon>
             </template>
             <template is="dom-if" if="[[logo]]">
               <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
@@ -44,8 +44,8 @@
         </paper-header-panel>
         <paper-scroll-header-panel id="headerPanelMain" main>
           <paper-toolbar>
-            <template is="dom-if" if="[[!narrow]]">
-              <iron-icon style="cursor:pointer" icon="[[backMenu]]" on-tap="full"></iron-icon>
+            <template is="dom-if" if="[[narrow]]">
+              <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
             </template>
             <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
           </paper-toolbar>
