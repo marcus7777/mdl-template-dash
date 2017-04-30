@@ -10,6 +10,7 @@
   "dependencies": {
     "iron-icon": "PolymerElements/iron-icon",
     "iron-icons": "PolymerElements/iron-icons",
+    "hide-if-small":"marcus7777/hide-if-small",
     "paper-button": "PolymerElements/paper-button",
     "paper-item": "PolymerElements/paper-item",
     "paper-toolbar": "PolymerElements/paper-toolbar#~1.1.7",
