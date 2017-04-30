@@ -53,6 +53,11 @@
             <iron-pages selected="{{menuSelectedWithContent}}">
               <template is="dom-repeat" items="[[pagesWithContent]]">
                 <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
+                <template is="dom-if" if="[[ifWideAdd]]">
+                  <hide-if-small>
+                    <content select="[[ifWideAdd]]"></content>
+                  </hide-if-small>
+                </template>
               </template>
             </iron-pages>
           </div>
