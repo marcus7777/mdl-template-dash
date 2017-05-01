@@ -52,16 +52,14 @@
           <div>
             <iron-pages selected="{{menuSelectedWithContent}}">
               <template is="dom-repeat" items="[[pagesWithContent]]">
-                <div>
-                  <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
-                  <template is="dom-if" if="[[ifWideAdd]]">
-                    <hide-if-small>
-                      <content select="[[ifWideAdd]]"></content>
-                    </hide-if-small>
-                  </template>
-                </div>
+                <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
               </template>
-            </iron-pages>
+            </iron-pages> 
+            <template is="dom-if" if="[[ifWideAdd]]">
+              <hide-if-small>
+                <content select="[[ifWideAdd]]"></content>
+              </hide-if-small>
+            </template>
           </div>
         </paper-scroll-header-panel>
       </paper-drawer-panel>
