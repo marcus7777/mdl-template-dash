@@ -51,9 +51,11 @@
           </paper-toolbar>
           <div>
             <template is="dom-if" if="[[ifWideAdd]]">
-              <hide-if-small style="display:inline-block;float:right;">
-                <content select="[[ifWideAdd]]"></content>
-              </hide-if-small>
+              <template is="dom-if" if="[[aside]]">
+                <hide-if-small style="display:inline-block;float:right;">
+                  <content select="[[ifWideAdd]]"></content>
+                </hide-if-small>
+              </template>
             </template>
             <iron-pages selected="{{menuSelectedWithContent}}">
               <template is="dom-repeat" items="[[pagesWithContent]]">
@@ -106,6 +108,12 @@
         type:Array,
         value:[{Label:"home",Icon:"home"},"",{Label:"Inbox",Icon:"inbox"}],
       },
+      notShowAsideOn:{
+        value:["home"],
+      },
+      aside:{
+        computed: "showASide(page,notShowAsideOn)",
+      },
       titlePage:{
         computed:"getTitlePage(pagesWithContent,menuSelectedWithContent)",
       },
@@ -116,6 +124,9 @@
         computed:"getMenuSelectedWithContent(menuSelected,pages)",
       },
       appTitle:String,
+    },
+    showASide: function(page, notShowAsideOn){
+      return notShowAsideOn.indexOf(page) !== -1
     },
     setPage: function(title) {
       if (title && this.page != title) {
