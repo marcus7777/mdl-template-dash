@@ -109,7 +109,7 @@
         value:[{Label:"home",Icon:"home"},"",{Label:"Inbox",Icon:"inbox"}],
       },
       notShowAsideOn:{
-        value:["home"],
+        value:["Home"],
       },
       aside:{
         computed: "showASide(page,notShowAsideOn)",
@@ -126,7 +126,7 @@
       appTitle:String,
     },
     showASide: function(page, notShowAsideOn){
-      return notShowAsideOn.indexOf(page) !== -1
+      return notShowAsideOn.indexOf(page) === -1
     },
     setPage: function(title) {
       if (title && this.page != title) {
