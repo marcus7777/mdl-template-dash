@@ -25,17 +25,8 @@
     </style>
     <template is="dom-if" if="[[!loginPage]]">
       <app-drawer-layout>
-        <app-toolbar>
-          <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle></iron-icon>
-          <template is="dom-if" if="[[logo]]">
-            <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
-          </template>
-          <h2 main-title> [[appTitle]] </h2>
-          <template is="dom-if" if="[[narrow]]">
-            <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
-          </template>
-          <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
-        </app-toolbar>
+        
+
         <app-drawer>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
             <template is="dom-repeat" items="[[pages]]">
@@ -48,20 +39,36 @@
             </template>
           </paper-menu>
         </app-drawer>
-        <div>
-          <template is="dom-if" if="[[ifWideAdd]]">
-            <template is="dom-if" if="[[aside]]">
-              <hide-if-small style="display:inline-block;float:right;max-width:324px">
-                <content select="[[ifWideAdd]]"></content>
-              </hide-if-small>
+        
+        <app-header-layout>
+          <app-header>
+            <app-toolbar>
+              <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle></iron-icon>
+              <template is="dom-if" if="[[logo]]">
+                <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
+              </template>
+              <h2 main-title> [[appTitle]] </h2>
+              <template is="dom-if" if="[[narrow]]">
+                <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
+              </template>
+              <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
+            </app-toolbar>
+          </app-header>
+          <div>
+            <template is="dom-if" if="[[ifWideAdd]]">
+              <template is="dom-if" if="[[aside]]">
+                <hide-if-small style="display:inline-block;float:right;max-width:324px">
+                  <content select="[[ifWideAdd]]"></content>
+                </hide-if-small>
+              </template>
             </template>
-          </template>
-          <iron-pages selected="{{menuSelectedWithContent}}">
-            <template is="dom-repeat" items="[[pagesWithContent]]">
-              <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
-            </template>
-          </iron-pages> 
-        </div>
+            <iron-pages selected="{{menuSelectedWithContent}}">
+              <template is="dom-repeat" items="[[pagesWithContent]]">
+                <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
+              </template>
+            </iron-pages> 
+          </div>
+        </app-header-layout>
       </app-drawer-layout>
     </template>
     <template is="dom-if" if="[[loginPage]]">
