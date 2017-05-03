@@ -24,18 +24,18 @@
       };
     </style>
     <template is="dom-if" if="[[!loginPage]]">
-      <app-toolbar>
-        <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle></iron-icon>
-        <template is="dom-if" if="[[logo]]">
-          <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
-        </template>
-        <h2 main-title> [[appTitle]] </h2>
-        <template is="dom-if" if="[[narrow]]">
-          <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
-        </template>
-        <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
-      </app-toolbar>
       <app-drawer-layout>
+        <app-toolbar>
+          <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle></iron-icon>
+          <template is="dom-if" if="[[logo]]">
+            <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
+          </template>
+          <h2 main-title> [[appTitle]] </h2>
+          <template is="dom-if" if="[[narrow]]">
+            <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
+          </template>
+          <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
+        </app-toolbar>
         <app-drawer>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
             <template is="dom-repeat" items="[[pages]]">
