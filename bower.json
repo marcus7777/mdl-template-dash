@@ -13,12 +13,11 @@
     "hide-if-small":"marcus7777/hide-if-small",
     "paper-button": "PolymerElements/paper-button",
     "paper-item": "PolymerElements/paper-item",
-    "paper-toolbar": "PolymerElements/paper-toolbar#~1.1.7",
     "paper-menu": "PolymerElements/paper-menu",
     "paper-dropdown-menu": "PolymerElements/paper-dropdown-menu",
     "paper-header-panel": "PolymerElements/paper-header-panel#~1.1.7",
     "iron-pages": "PolymerElements/iron-pages#~1.0.8",
-    "paper-drawer-panel": "PolymerElements/paper-drawer-panel#~1.0.10",
+    "app-layout": "PolymerElements/app-layout#~1.0.1",
     "paper-scroll-header-panel": "PolymerElements/paper-scroll-header-panel#~1.0.16"
   },
   "devDependencies": {
