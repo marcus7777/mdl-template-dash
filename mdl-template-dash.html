@@ -1,8 +1,4 @@
-<link rel="import" href="../paper-scroll-header-panel/paper-scroll-header-panel.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
-<link rel="import" href="../paper-header-panel/paper-header-panel.html">
-<link rel="import" href="../paper-drawer-panel/paper-drawer-panel.html">
-<link rel="import" href="../paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../hide-if-small/hide-if-small.html">
 <link rel="import" href="../paper-item/paper-icon-item.html">
 <link rel="import" href="../paper-item/paper-item-body.html">
@@ -11,6 +7,7 @@
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-pages/iron-pages.html">
+<link rel="import" href="../app-layout/app-layout.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
 <!--
   `<mdl-template-dash></mdl-template-dash>` app-temp
@@ -20,9 +17,9 @@
   <template>
     <style>:host {display:block} </style>
     <template is="dom-if" if="[[!loginPage]]"> 
-      <paper-drawer-panel narrow="{{narrow}}">
-        <paper-header-panel drawer>        
-          <paper-toolbar>
+      <app-drawer-layout narrow="{{narrow}}">
+        <app-header-panel drawer>        
+          <app-toolbar>
             <template is="dom-if" if="[[!narrow]]">
               <iron-icon style="cursor:pointer" icon="[[backMenu]]" on-tap="full"></iron-icon>
             </template>
@@ -30,7 +27,7 @@
               <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
             </template>
             <h2 title> [[appTitle]] </h2>
-          </paper-toolbar>
+          </app-toolbar>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
             <template is="dom-repeat" items="[[pages]]">
               <template is="dom-if" if="[[item]]"> 
@@ -41,30 +38,28 @@
               </template>
             </template>
           </paper-menu>
-        </paper-header-panel>
-        <paper-scroll-header-panel id="headerPanelMain" main fixed>
-          <paper-toolbar>
-            <template is="dom-if" if="[[narrow]]">
-              <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
+        </app-header-panel>
+        <app-toolbar>
+          <template is="dom-if" if="[[narrow]]">
+            <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
+          </template>
+          <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
+        </app-toolbar>
+        <div>
+          <template is="dom-if" if="[[ifWideAdd]]">
+            <template is="dom-if" if="[[aside]]">
+              <hide-if-small style="display:inline-block;float:right;max-width:324px">
+                <content select="[[ifWideAdd]]"></content>
+              </hide-if-small>
             </template>
-            <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
-          </paper-toolbar>
-          <div>
-            <template is="dom-if" if="[[ifWideAdd]]">
-              <template is="dom-if" if="[[aside]]">
-                <hide-if-small style="display:inline-block;float:right;max-width:324px">
-                  <content select="[[ifWideAdd]]"></content>
-                </hide-if-small>
-              </template>
+          </template>
+          <iron-pages selected="{{menuSelectedWithContent}}">
+            <template is="dom-repeat" items="[[pagesWithContent]]">
+              <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
             </template>
-            <iron-pages selected="{{menuSelectedWithContent}}">
-              <template is="dom-repeat" items="[[pagesWithContent]]">
-                <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
-              </template>
-            </iron-pages> 
-          </div>
-        </paper-scroll-header-panel>
-      </paper-drawer-panel>
+          </iron-pages> 
+        </div>
+      </app-drawer-layout>
     </template>
     <template is="dom-if" if="[[loginPage]]">
       <div style="display: flex;justify-content: center;align-items: center;">
