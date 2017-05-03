@@ -18,16 +18,20 @@
     <style>:host {display:block} </style>
     <template is="dom-if" if="[[!loginPage]]"> 
       <app-drawer-layout narrow="{{narrow}}">
-        <app-header-panel drawer>        
-          <app-toolbar>
-            <template is="dom-if" if="[[!narrow]]">
-              <iron-icon style="cursor:pointer" icon="[[backMenu]]" on-tap="full"></iron-icon>
-            </template>
-            <template is="dom-if" if="[[logo]]">
-              <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
-            </template>
-            <h2 title> [[appTitle]] </h2>
-          </app-toolbar>
+        <app-toolbar>
+          <template is="dom-if" if="[[!narrow]]">
+            <iron-icon style="cursor:pointer" icon="[[backMenu]]" on-tap="full"></iron-icon>
+          </template>
+          <template is="dom-if" if="[[logo]]">
+            <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
+          </template>
+          <h2 title> [[appTitle]] </h2>
+          <template is="dom-if" if="[[narrow]]">
+            <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
+          </template>
+          <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
+        </app-toolbar>
+        <app-drawer>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
             <template is="dom-repeat" items="[[pages]]">
               <template is="dom-if" if="[[item]]"> 
@@ -38,13 +42,7 @@
               </template>
             </template>
           </paper-menu>
-        </app-header-panel>
-        <app-toolbar>
-          <template is="dom-if" if="[[narrow]]">
-            <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
-          </template>
-          <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
-        </app-toolbar>
+        </app-drawer>
         <div>
           <template is="dom-if" if="[[ifWideAdd]]">
             <template is="dom-if" if="[[aside]]">
