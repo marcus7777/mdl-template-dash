@@ -151,14 +151,14 @@
       }
     },
     openMenu: function(){
-      this.$$("paper-drawer-panel").openDrawer()
+      this.$$("app-drawer-layout").openDrawer()
       if (this.responsiveWidth) {
-        this.$$("paper-drawer-panel").responsiveWidth = this.responsiveWidth 
+        this.$$("app-drawer-layout").responsiveWidth = this.responsiveWidth 
         this.responsiveWidth = null
       }
     },
     closeMenu: function(){
-      this.$$("paper-drawer-panel").closeDrawer()
+      this.$$("app-drawer-layout").closeDrawer()
     },
     getTitlePage: function(pages,page){
       if (this.$$("#headerPanelMain")) {
