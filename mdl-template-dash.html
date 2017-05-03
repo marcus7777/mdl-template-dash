@@ -25,6 +25,18 @@
     </style>
     <template is="dom-if" if="[[!loginPage]]">
       <app-drawer-layout>
+        <app-drawer>
+          <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
+            <template is="dom-repeat" items="[[pages]]">
+              <template is="dom-if" if="[[item]]"> 
+                <paper-icon-item style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
+              </template>
+              <template is="dom-if" if="[[!item]]">
+                <hr>
+              </template>
+            </template>
+          </paper-menu>
+        </app-drawer>
         <app-header-layout>
           <app-header>
             <app-toolbar>
@@ -39,18 +51,6 @@
               <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
             </app-toolbar>
           </app-header>
-          <app-drawer>
-            <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
-              <template is="dom-repeat" items="[[pages]]">
-                <template is="dom-if" if="[[item]]"> 
-                  <paper-icon-item style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
-                </template>
-                <template is="dom-if" if="[[!item]]">
-                  <hr>
-                </template>
-              </template>
-            </paper-menu>
-          </app-drawer>
           <div>
             <template is="dom-if" if="[[ifWideAdd]]">
               <template is="dom-if" if="[[aside]]">
