@@ -27,7 +27,7 @@
       <app-drawer-layout force-narrow="[[narrow]]">
         <app-drawer>
           <app-header condenses>
-            <app-toolbar>
+            <app-toolbar fixed>
               <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle></iron-icon>
             </app-toolbar>
           </app-header>
@@ -51,7 +51,7 @@
                 <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
               </template>
               <h2 main-title> [[appTitle]] </h2>
-              <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
+              <div main-title class="title" style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
             </app-toolbar>
           </app-header>
           <div>
