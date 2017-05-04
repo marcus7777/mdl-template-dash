@@ -28,7 +28,7 @@
         <app-drawer>
           <app-header condenses>
             <app-toolbar fixed>
-              <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle></iron-icon>
+              <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle on-tap="full"></iron-icon>
             </app-toolbar>
           </app-header>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="resetDrawer">
