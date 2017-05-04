@@ -46,7 +46,7 @@
         <app-header-layout>
           <app-header condenses>
             <app-toolbar fixed>
-              <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu" drawer-toggle></iron-icon>
+              <iron-icon style="cursor:pointer" icon="menu" drawer-toggle></iron-icon>
               <template is="dom-if" if="[[logo]]">
                 <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
               </template>
@@ -154,15 +154,8 @@
         this.menuSelected = index
       }
     },
-    openMenu: function(){
-      this.$$("app-drawer-layout").openDrawer()
-      if (this.responsiveWidth) {
-        this.$$("app-drawer-layout").responsiveWidth = this.responsiveWidth 
-        this.responsiveWidth = null
-      }
-    },
     closeMenu: function(){
-      this.$$("app-drawer-layout").closeDrawer()
+      this.$$("app-drawer-layout")._resetDrawerState()
     },
     getTitlePage: function(pages,page){
       if (this.$$("#headerPanelMain")) {
