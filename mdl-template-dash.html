@@ -24,7 +24,7 @@
       };
     </style>
     <template is="dom-if" if="[[!loginPage]]">
-      <app-drawer-layout>
+      <app-drawer-layout force-narrow="[[narrow]]">
         <app-drawer>
           <app-header condenses>
             <app-toolbar>
@@ -129,6 +129,10 @@
         computed:"getMenuSelectedWithContent(menuSelected,pages)",
       },
       appTitle:String,
+      narrow:{
+        type: Boolean,
+        value: false,
+      },
     },
     showASide: function(page, notShowAsideOn){
       return notShowAsideOn.indexOf(page) === -1
@@ -187,9 +191,8 @@
        }
       }, menuSelected)
     },
-    full: function(menuSelected,pages) {
-      this.responsiveWidth = this.$$("paper-drawer-panel").responsiveWidth // TODO how to go back?
-      this.$$("paper-drawer-panel").responsiveWidth = "1000000px" // make narrow
+    full: function() {
+      this.narrow = !this.narrow // make narrow
     },
     userSwitch: function() {
       this.switching = true
