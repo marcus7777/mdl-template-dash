@@ -31,7 +31,7 @@
               <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle></iron-icon>
             </app-toolbar>
           </app-header>
-          <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="full">
+          <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="resetDrawer">
             <template is="dom-repeat" items="[[pages]]">
               <template is="dom-if" if="[[item]]"> 
                 <paper-icon-item style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
@@ -154,7 +154,7 @@
         this.menuSelected = index
       }
     },
-    closeMenu: function(){
+    resetDrawer: function(){
       this.$$("app-drawer-layout")._resetDrawerState()
     },
     getTitlePage: function(pages,page){
