@@ -31,7 +31,7 @@
               <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle></iron-icon>
             </app-toolbar>
           </app-header>
-          <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
+          <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="full">
             <template is="dom-repeat" items="[[pages]]">
               <template is="dom-if" if="[[item]]"> 
                 <paper-icon-item style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
@@ -44,8 +44,8 @@
         </app-drawer>
         
         <app-header-layout>
-          <app-header>
-            <app-toolbar>
+          <app-header condenses>
+            <app-toolbar fixed>
               <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu" drawer-toggle></iron-icon>
               <template is="dom-if" if="[[logo]]">
                 <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
