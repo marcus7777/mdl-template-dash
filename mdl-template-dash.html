@@ -28,13 +28,17 @@
       };
     </style>
     <template is="dom-if" if="[[!loginPage]]">
+      <app-toolbar fixed>
+        <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle on-tap="full"></iron-icon>
+        <iron-icon style="cursor:pointer" icon="menu" drawer-toggle></iron-icon>
+        <template is="dom-if" if="[[logo]]">
+          <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
+        </template>
+        <h2 main-title> [[appTitle]] </h2>
+        <div main-title class="title" style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
+      </app-toolbar>
       <app-drawer-layout force-narrow="[[narrow]]">
         <app-drawer>
-          <app-header condenses>
-            <app-toolbar fixed>
-              <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle on-tap="full"></iron-icon>
-            </app-toolbar>
-          </app-header>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="resetDrawer">
             <template is="dom-repeat" items="[[pages]]">
               <template is="dom-if" if="[[item]]"> 
@@ -50,13 +54,7 @@
         <app-header-layout>
           <app-header condenses>
             <app-toolbar fixed>
-              <iron-icon style="cursor:pointer" icon="menu" drawer-toggle></iron-icon>
-              <template is="dom-if" if="[[logo]]">
-                <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
-              </template>
-              <h2 main-title> [[appTitle]] </h2>
-              <div main-title class="title" style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
-            </app-toolbar>
+           </app-toolbar>
           </app-header>
           <div>
             <template is="dom-if" if="[[ifWideAdd]]">
