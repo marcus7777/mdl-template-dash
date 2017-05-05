@@ -29,7 +29,7 @@
             <template is="dom-if" if="[[logo]]">
               <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
             </template>
-            <h2 title> [[appTitle]] </h2>
+            <div title> [[appTitle]] </div>
           </paper-toolbar>
           <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
             <template is="dom-repeat" items="[[pages]]">
