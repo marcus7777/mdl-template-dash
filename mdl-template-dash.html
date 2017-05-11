@@ -1,4 +1,7 @@
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../paper-toolbar/paper-toolbar.html">
 <link rel="import" href="../hide-if-small/hide-if-small.html">
 <link rel="import" href="../paper-item/paper-icon-item.html">
 <link rel="import" href="../paper-item/paper-item-body.html">
@@ -46,23 +49,42 @@
             <template is="dom-if" if="[[!item]]">
               <hr>
             </template>
-          </template>
-        </paper-menu>
-      </app-drawer>
-      <div>
-        <template is="dom-if" if="[[ifWideAdd]]">
-          <template is="dom-if" if="[[aside]]">
-            <hide-if-small style="display:inline-block;float:right;max-width:324px">
-              <content select="[[ifWideAdd]]"></content>
-            </hide-if-small>
-          </template>
-        </template>
-        <iron-pages selected="{{menuSelectedWithContent}}">
-          <template is="dom-repeat" items="[[pagesWithContent]]">
-            <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
-          </template>
-        </iron-pages> 
-      </div>
+            <div title> [[appTitle]] </div>
+          </paper-toolbar>
+          <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
+            <template is="dom-repeat" items="[[pages]]">
+              <template is="dom-if" if="[[item]]"> 
+                <paper-icon-item style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
+              </template>
+              <template is="dom-if" if="[[!item]]">
+                <hr>
+              </template>
+            </template>
+          </paper-menu>
+        </paper-header-panel>
+        <paper-scroll-header-panel id="headerPanelMain" main fixed>
+          <paper-toolbar>
+            <template is="dom-if" if="[[narrow]]">
+              <iron-icon style="cursor:pointer" icon="menu" on-tap="openMenu"></iron-icon>
+            </template>
+            <div class=title style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
+          </paper-toolbar>
+          <div>
+            <template is="dom-if" if="[[ifWideAdd]]">
+              <template is="dom-if" if="[[aside]]">
+                <hide-if-small style="display:inline-block;float:right;max-width:324px">
+                  <content select="[[ifWideAdd]]"></content>
+                </hide-if-small>
+             </template>
+            </template>
+            <iron-pages selected="{{menuSelectedWithContent}}">
+              <template is="dom-repeat" items="[[pagesWithContent]]">
+                <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
+              </template>
+            </iron-pages>
+          </div>
+        </paper-scroll-header-panel>
+      </paper-drawer-panel>
     </template>
     <template is="dom-if" if="[[loginPage]]">
       <div style="display: flex;justify-content: center;align-items: center;">
@@ -80,6 +102,13 @@
     properties:{
       go:{
         notify:true,
+      },
+      aside:{
+        computed: "showASide(page,notShowAsideOn)",
+        value: false,
+      },
+      notShowAsideOn:{
+        value:["Home",""],
       },
       page:{
         type:String,
@@ -104,7 +133,7 @@
       },
       pages:{
         type:Array,
-        value:[{Label:"home",Icon:"home"},"",{Label:"Inbox",Icon:"inbox"}],
+        value:[{Label:"Home",Icon:"home"},"",{Label:"Inbox",Icon:"inbox"}],
       },
       notShowAsideOn:{
         value:["Home",""],
@@ -126,6 +155,9 @@
         type: Boolean,
         value: false,
       },
+    },
+    showASide: function(page, notShowAsideOn){
+      return notShowAsideOn.indexOf(page) === -1
     },
     showASide: function(page, notShowAsideOn){
       return notShowAsideOn.indexOf(page) === -1
