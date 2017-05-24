@@ -9,15 +9,18 @@
     <link rel="import" href="../paper-badge/paper-badge.html">
     <script src="https://www.gstatic.com/firebasejs/4.0.0/firebase.js"></script>
     <script>
-      // Initialize Firebase for open-elements.org
-      firebase.initializeApp({
-        apiKey: "AIzaSyDaJfXWs8Hy2ZKTWEzU8gSVLC5D_JrbeLg",
-        authDomain: "open-elements.firebaseapp.com",
-        databaseURL: "https://open-elements.firebaseio.com",
-        storageBucket: "open-elements.appspot.com",
-        messagingSenderId: "508760526273"
-      });
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyClpM6c2EunRvJN1qJqzpcUjU3FcaQy5SI",
+        authDomain: "open-elements-732a1.firebaseapp.com",
+        databaseURL: "https://open-elements-732a1.firebaseio.com",
+        projectId: "open-elements-732a1",
+        storageBucket: "open-elements-732a1.appspot.com",
+        messagingSenderId: "227430047732",
+      }
+      firebase.initializeApp(config)
     </script>
+    
   </head>
   <body>
     <h3>mdl-template-dash Demo</h3>
