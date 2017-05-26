@@ -51,16 +51,6 @@
             </template>
             <div title> [[appTitle]] </div>
           </template>
-          <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
-            <template is="dom-repeat" items="[[pages]]">
-              <template is="dom-if" if="[[item]]"> 
-                <paper-icon-item style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
-              </template>
-              <template is="dom-if" if="[[!item]]">
-                <hr>
-              </template>
-            </template>
-          </paper-menu>
         </paper-menu>
         <paper-scroll-header-panel id="headerPanelMain" main fixed>
           <paper-toolbar>
