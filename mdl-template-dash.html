@@ -50,18 +50,8 @@
               <hr>
             </template>
             <div title> [[appTitle]] </div>
-          </paper-toolbar>
-          <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
-            <template is="dom-repeat" items="[[pages]]">
-              <template is="dom-if" if="[[item]]"> 
-                <paper-icon-item style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
-              </template>
-              <template is="dom-if" if="[[!item]]">
-                <hr>
-              </template>
-            </template>
-          </paper-menu>
-        </paper-header-panel>
+          </template>
+        </paper-menu>
         <paper-scroll-header-panel id="headerPanelMain" main fixed>
           <paper-toolbar>
             <template is="dom-if" if="[[narrow]]">
@@ -84,7 +74,7 @@
             </iron-pages>
           </div>
         </paper-scroll-header-panel>
-      </paper-drawer-panel>
+      </app-drawer>
     </template>
     <template is="dom-if" if="[[loginPage]]">
       <div style="display: flex;justify-content: center;align-items: center;">
