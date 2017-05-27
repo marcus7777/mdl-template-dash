@@ -1,3 +1,4 @@
+<link rel="import" href="../paper-scroll-header-panel/paper-scroll-header-panel.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../paper-drawer-panel/paper-drawer-panel.html">
@@ -10,48 +11,38 @@
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-pages/iron-pages.html">
-<link rel="import" href="../app-layout/app-layout.html">
 <link rel="import" href="../iron-icon/iron-icon.html">
+
 <!--
   `<mdl-template-dash></mdl-template-dash>` app-temp
   @demo demo.html
 -->
 <dom-module id="mdl-template-dash">
   <template>
-    <style>
-      :host {display:block;};
-      app-header {
-        --app-header-shadow: {
-          box-shadow: inset 0px 5px 2px -3px rgba(0, 0, 0, 0.2);
-        };
-      };
-      app-toolbar {
-        background-color: white;
-        box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.4);
-      };
-    </style>
-    <template is="dom-if" if="[[!loginPage]]">
-      <app-toolbar>
-        <iron-icon style="cursor:pointer" icon="[[backMenu]]" drawer-toggle on-tap="full"></iron-icon>
-        <iron-icon style="cursor:pointer" icon="menu" drawer-toggle></iron-icon>
-        <template is="dom-if" if="[[logo]]">
-          <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
-        </template>
-        <div main-title> [[appTitle]] </div>
-        <div main-title class="title" style="text-transform:capitalize"> [[titlePage]] </div><content select="toolbar-icons"></content>
-      </app-toolbar>
-      <app-drawer opened="[[!narrow]]">
-        <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="resetDrawer">
-          <template is="dom-repeat" items="[[pages]]">
-            <template is="dom-if" if="[[item]]"> 
-              <paper-icon-item style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
+    <style>:host {display:block} </style>
+    <template is="dom-if" if="[[!loginPage]]"> 
+      <paper-drawer-panel narrow="{{narrow}}">
+        <paper-header-panel drawer>        
+          <paper-toolbar>
+            <template is="dom-if" if="[[!narrow]]">
+              <iron-icon style="cursor:pointer" icon="[[backMenu]]" on-tap="full"></iron-icon>
             </template>
-            <template is="dom-if" if="[[!item]]">
-              <hr>
+            <template is="dom-if" if="[[logo]]">
+              <img style="margin-top:8px;width:60px" src="[[logo]]" item-icon />
             </template>
             <div title> [[appTitle]] </div>
-          </template>
-        </paper-menu>
+          </paper-toolbar>
+          <paper-menu style="text-transform:capitalize" selected="{{menuSelected}}" on-tap="closeMenu">
+            <template is="dom-repeat" items="[[pages]]">
+              <template is="dom-if" if="[[item]]"> 
+                <paper-icon-item style="cursor:pointer" title="[[item.Description]]"><iron-icon icon="[[item.Icon]]" item-icon></iron-icon><paper-item-body> [[item.Label]] </paper-item-body></paper-icon-item>
+              </template>
+              <template is="dom-if" if="[[!item]]">
+                <hr>
+              </template>
+            </template>
+          </paper-menu>
+        </paper-header-panel>
         <paper-scroll-header-panel id="headerPanelMain" main fixed>
           <paper-toolbar>
             <template is="dom-if" if="[[narrow]]">
@@ -74,7 +65,7 @@
             </iron-pages>
           </div>
         </paper-scroll-header-panel>
-      </app-drawer>
+      </paper-drawer-panel>
     </template>
     <template is="dom-if" if="[[loginPage]]">
       <div style="display: flex;justify-content: center;align-items: center;">
@@ -125,12 +116,6 @@
         type:Array,
         value:[{Label:"Home",Icon:"home"},"",{Label:"Inbox",Icon:"inbox"}],
       },
-      notShowAsideOn:{
-        value:["Home",""],
-      },
-      aside:{
-        computed: "showASide(page,notShowAsideOn)",
-      },
       titlePage:{
         computed:"getTitlePage(pagesWithContent,menuSelectedWithContent)",
       },
@@ -141,13 +126,6 @@
         computed:"getMenuSelectedWithContent(menuSelected,pages)",
       },
       appTitle:String,
-      narrow:{
-        type: Boolean,
-        value: false,
-      },
-    },
-    showASide: function(page, notShowAsideOn){
-      return notShowAsideOn.indexOf(page) === -1
     },
     showASide: function(page, notShowAsideOn){
       return notShowAsideOn.indexOf(page) === -1
@@ -169,8 +147,15 @@
         this.menuSelected = index
       }
     },
-    resetDrawer: function(){
-      this.$$("app-drawer-layout")._resetDrawerState()
+    openMenu: function(){
+      this.$$("paper-drawer-panel").openDrawer()
+      if (this.responsiveWidth) {
+        this.$$("paper-drawer-panel").responsiveWidth = this.responsiveWidth 
+        this.responsiveWidth = null
+      }
+    },
+    closeMenu: function(){
+      this.$$("paper-drawer-panel").closeDrawer()
     },
     getTitlePage: function(pages,page){
       if (this.$$("#headerPanelMain")) {
@@ -199,8 +184,9 @@
        }
       }, menuSelected)
     },
-    full: function() {
-      this.narrow = !this.narrow // make narrow
+    full: function(menuSelected,pages) {
+      this.responsiveWidth = this.$$("paper-drawer-panel").responsiveWidth // TODO how to go back?
+      this.$$("paper-drawer-panel").responsiveWidth = "1000000px" // make narrow
     },
     userSwitch: function() {
       this.switching = true
