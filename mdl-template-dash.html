@@ -136,9 +136,13 @@
     behaviors: [ Polymer.IronResizableBehavior ],
     listeners: { "iron-resize": "onWidthChange" },
     onWidthChange: function() {
-      var w = this.$$("iron-pages.main").offsetWidth;
+      var onPage 
+      if (this.makeTag(this.pagesWithContent[this.menuSelectedWithContent])){
+        onPage = this.makeTag(this.pagesWithContent[this.menuSelectedWithContent]) + "-page"
+      }
+      var w = this.$$("iron-pages.main div " + onPage).offsetWidth
       if (w > 0) {
-        console.log("width is now ", w);
+        console.log("width is now ", w)
       }
     },
     showASide: function(page, notShowAsideOn){
