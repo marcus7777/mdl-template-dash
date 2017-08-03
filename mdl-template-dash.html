@@ -20,6 +20,7 @@
 <dom-module id="mdl-template-dash">
   <template>
     <style>:host {display:block} </style>
+    
     <template is="dom-if" if="[[!loginPage]]"> 
       <paper-drawer-panel narrow="{{narrow}}">
         <paper-header-panel drawer>        
@@ -58,7 +59,7 @@
                 </hide-if-small>
              </template>
             </template>
-            <iron-pages selected="{{menuSelectedWithContent}}">
+            <iron-pages class="main" selected="{{menuSelectedWithContent}}">
               <template is="dom-repeat" items="[[pagesWithContent]]">
                 <div style="display: flex;align-items: center;"><content select="[[makeTag(item.Label)]]-page"></content></div>
               </template>
@@ -109,6 +110,11 @@
         notify:true,
         value:0,
       },
+      wide:{
+        type:Boolean,
+        value:false,
+        notify:true,
+      },
       _setMenuSelected:{
         computed:"setMenuSelected(page,pages)",
       },
@@ -126,6 +132,14 @@
         computed:"getMenuSelectedWithContent(menuSelected,pages)",
       },
       appTitle:String,
+    },
+    behaviors: [ Polymer.IronResizableBehavior ],
+    listeners: { "iron-resize": "onWidthChange" },
+    onWidthChange: function() {
+      var w = this.$$("iron-pages.main").offsetWidth;
+      if (w > 0) {
+        console.log("width is now ", w);
+      }
     },
     showASide: function(page, notShowAsideOn){
       return notShowAsideOn.indexOf(page) === -1
