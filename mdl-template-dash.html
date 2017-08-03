@@ -141,8 +141,10 @@
         onPage = this.makeTag(this.pagesWithContent[this.menuSelectedWithContent]) + "-page"
       }
       var w = this.$$("iron-pages.main div " + onPage).offsetWidth
-      if (w > 0) {
-        console.log("width is now ", w)
+      if (w > 700) {
+        this.wide = true
+      } else {
+        this.wide = false
       }
     },
     showASide: function(page, notShowAsideOn){
