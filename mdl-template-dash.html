@@ -138,8 +138,8 @@
     listeners: { "iron-resize": "onWidthChange" },
     onWidthChange: function() {
       var onPage 
-      if (this.makeTag(this.pagesWithContent[this.menuSelectedWithContent])){
-        onPage = this.makeTag(this.pagesWithContent[this.menuSelectedWithContent]) + "-page"
+      if (this.pagesWithContent[this.menuSelectedWithContent].Label){
+        onPage = this.makeTag(this.pagesWithContent[this.menuSelectedWithContent].Label) + "-page"
       }
       var w = this.$$("iron-pages.main div " + onPage).offsetWidth
       if (w > 700) {
