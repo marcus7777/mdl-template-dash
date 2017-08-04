@@ -145,13 +145,18 @@
       var pageEle = this.$$("iron-pages.main div " + onPage)
       if (pageEle && pageEle != null) {
         w = this.$$("iron-pages.main div " + onPage).offsetWidth
-        if (w > 700) {
-          this.wide = true
-        } else if (+w) {
-          this.wide = false
-        }
       } else {
-        console.log("not find ", "iron-pages.main div " + onPage)
+        pageEle = this.$$("iron-pages.main div")
+        if (pageEle && pageEle != null) {
+          w = this.$$("iron-pages.main div " + onPage).offsetWidth
+        } else {
+          console.log("not find ", "'iron-pages.main div' or " + onPage)
+        }
+      }
+      if (w > 700) {
+        this.wide = true
+      } else if (+w) {
+        this.wide = false
       }
     },
     showASide: function(page, notShowAsideOn){
