@@ -137,15 +137,19 @@
     behaviors: [ Polymer.IronResizableBehavior ],
     listeners: { "iron-resize": "onWidthChange" },
     onWidthChange: function() {
-      var onPage 
+      var onPage
+      var w
       if (this.pagesWithContent[this.menuSelectedWithContent].Label){
         onPage = this.makeTag(this.pagesWithContent[this.menuSelectedWithContent].Label) + "-page"
       }
-      var w = this.$$("iron-pages.main div " + onPage).offsetWidth
-      if (w > 700) {
-        this.wide = true
-      } else {
-        this.wide = false
+      var pageEle = this.$$("iron-pages.main div " + onPage)
+      if (pageEle && pageEle != null) {
+        w = this.$$("iron-pages.main div " + onPage).offsetWidth
+        if (w > 700) {
+          this.wide = true
+        } else if (+w) {
+          this.wide = false
+        }
       }
     },
     showASide: function(page, notShowAsideOn){
