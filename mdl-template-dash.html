@@ -1,5 +1,4 @@
 <link rel="import" href="../paper-scroll-header-panel/paper-scroll-header-panel.html">
-<link rel="import" href="../iron-resizable-behavior/iron-resizable-behavior.html">
 <link rel="import" href="../paper-dropdown-menu/paper-dropdown-menu.html">
 <link rel="import" href="../paper-header-panel/paper-header-panel.html">
 <link rel="import" href="../paper-drawer-panel/paper-drawer-panel.html">
@@ -133,33 +132,6 @@
         computed:"getMenuSelectedWithContent(menuSelected,pages)",
       },
       appTitle:String,
-    },
-    behaviors: [ Polymer.IronResizableBehavior ],
-    listeners: { "iron-resize": "onWidthChange" },
-    onWidthChange: function() {
-      var onPage
-      var w
-      if (this.pagesWithContent[this.menuSelectedWithContent].Label){
-        onPage = this.makeTag(this.pagesWithContent[this.menuSelectedWithContent].Label) + "-page"
-      }
-      var pageEle = this.$$("iron-pages.main div " + onPage)
-      if (pageEle && pageEle != null) {
-        w = this.$$("iron-pages.main div " + onPage).offsetWidth
-      } else {
-        pageEle = this.$$("iron-pages.main div")
-        if (pageEle && pageEle != null) {
-          w = this.$$("iron-pages.main div").offsetWidth
-        } else if (!w) {
-          w = this.$$("iron-pages.main").offsetWidth
-        } else {
-          console.log("not find ", "'iron-pages.main div' or " + onPage)
-        }
-      }
-      if (w > 700) {
-        this.wide = true
-      } else if (+w) {
-        this.wide = false
-      }
     },
     showASide: function(page, notShowAsideOn){
       return notShowAsideOn.indexOf(page) === -1
