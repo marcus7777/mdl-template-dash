@@ -132,7 +132,7 @@
       return notShowAsideOn.indexOf(page) === -1
     },
     setPage: function(title) {
-      if (title && this.page != title) {
+      if (title && this.page !== title) {
         this.page = title
         this.go = !this.go
       }
